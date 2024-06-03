@@ -1,7 +1,7 @@
-sale_line_comment
-=================
+sale_line_invoice_comment
+=========================
 
-The sale_line_comment module of the Tryton application platform.
+The sale_line_invoice_comment module of the Tryton application platform.
 
 Installing
 ----------
