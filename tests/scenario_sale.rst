@@ -16,7 +16,7 @@ Imports::
 
 Activate modules::
 
-    >>> config = activate_modules('sale_line_comment')
+    >>> config = activate_modules('sale_line_invoice_comment')
 
 Create company::
 

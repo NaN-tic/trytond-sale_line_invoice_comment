@@ -1,5 +1,5 @@
-Installing nantic_sale_line_comment
-===================================
+Installing nantic_sale_line_invoice_comment
+===========================================
 
 Prerequisites
 -------------
@@ -10,7 +10,7 @@ Prerequisites
 Installation
 ------------
 
-Once you've downloaded and unpacked the nantic_sale_line_comment source
+Once you've downloaded and unpacked the nantic_sale_line_invoice_comment source
 release, enter the directory where the archive was unpacked, and run:
 
     python setup.py install
@@ -26,4 +26,4 @@ documentation:
   http://docs.python.org/inst/inst.html
 
 To use without installation, extract the archive into ``trytond/modules`` with
-the directory name sale_line_comment.
+the directory name sale_line_invoice_comment.
