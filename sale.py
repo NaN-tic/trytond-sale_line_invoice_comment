@@ -7,8 +7,8 @@ class SaleLine(metaclass=PoolMeta):
     'Sale Line'
     __name__ = 'sale.line'
 
-    def _get_invoice_not_line(self):
-        'Return if the not line should be invoiced'
+    def _get_invoice_comment_line(self):
+        'Return if comment lines should be invoiced'
         return (
             self.sale.invoice_method == 'order'
             and not self.sale.invoices)
@@ -17,7 +17,7 @@ class SaleLine(metaclass=PoolMeta):
         pool = Pool()
         InvoiceLine = pool.get('account.invoice.line')
 
-        if self.type == 'comment' and self._get_invoice_not_line():
+        if self.type == 'comment' and self._get_invoice_comment_line():
             invoice_line = InvoiceLine()
             invoice_line.type = self.type
             invoice_line.currency = self.currency
