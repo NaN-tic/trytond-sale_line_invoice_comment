@@ -11,7 +11,7 @@ class SaleLine(metaclass=PoolMeta):
         'Return if comment lines should be invoiced'
         return (
             self.sale.invoice_method == 'order'
-            and not self.sale.invoices)
+            and not self.invoice_lines)
 
     def get_invoice_line(self):
         pool = Pool()
