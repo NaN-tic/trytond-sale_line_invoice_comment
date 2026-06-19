@@ -180,3 +180,22 @@ class Test(unittest.TestCase):
         self.assertEqual(len(sale.invoices), 1)
         invoice, = sale.invoices
         assertEqual(len(invoice.lines), 3)
+
+        # Sale with only a comment line must not generate duplicate invoices
+        sale = Sale()
+        sale.party = customer
+        sale.payment_term = payment_term
+        sale.invoice_method = 'order'
+        sale_line = SaleLine()
+        sale.lines.append(sale_line)
+        sale_line.type = 'comment'
+        sale_line.description = 'Standalone Comment'
+        sale.click('quote')
+        sale.click('confirm')
+        self.assertEqual(sale.state, 'done')
+        self.assertEqual(len(sale.invoices), 0)
+        self.assertEqual(len(sale.lines[0].invoice_lines), 1)
+        invoice_line, = sale.lines[0].invoice_lines
+        self.assertEqual(invoice_line.type, 'comment')
+        self.assertEqual(invoice_line.description, 'Standalone Comment')
+        self.assertEqual(len(sale.lines[0].invoice_lines), 1)
